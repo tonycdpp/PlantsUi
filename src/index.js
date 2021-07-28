@@ -1,12 +1,37 @@
-import React from 'react';
+import React, { Profiler } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+class Plants extends React.Component{
+  render() {
+    return(
+    <div className ="plants-profile">
+      <img scr= "..." />
+      <div className= "info">
+      <div className ="name"> Name here...</div>
+     </div> 
+    </div>
+    );
+  }
+}
+
+class App extends React.Component{
+  render() {
+    return (
+      <div>
+        <div className= "header">(this.props.title)</div>
+        <Plants/>
+        </div>
+    );
+  }
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App title= "Plant App"/>
+    mountNode,
   </React.StrictMode>,
   document.getElementById('root')
 );
