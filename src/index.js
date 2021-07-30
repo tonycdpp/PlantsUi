@@ -8,7 +8,6 @@ class Plants extends React.Component{
   render() {
     return(
     <div className ="plants-profile">
-      <img scr= "..." />
       <div className= "info">
       <div className ="name"> Name here...</div>
      </div> 
