@@ -1,4 +1,4 @@
-import React, { Profiler } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
@@ -9,9 +9,8 @@ class Plants extends React.Component{
   render() {
     return(
     <div className ="plants-profile">
-      <img scr= "..." />
       <div className= "info">
-      <div className ="name"> Name here...</div>
+      <div className ="name"> Essi Name here...</div>
      </div> 
     </div>
     );
