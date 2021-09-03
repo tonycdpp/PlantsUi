@@ -4,14 +4,22 @@ import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const PlantsList = (props) => (
+  <div>
+    <Plants />
+  </div>
+
+);
 
 class Plants extends React.Component{
   render() {
     return(
-    <div className ="plants-profile">
+    <div className ="plants-profile" style={{ margin: '1rem'}}>
+      <img alt= "some" src= "https://placehold.it/75"/>
       <div className= "info">
-      <div className ="name"> Essi Name here...</div>
-     </div> 
+        <div className="name">  Plant Name here...</div>
+        <div className= "plantInfo"> Plant information here...</div>
+      </div> 
     </div>
     );
   }
@@ -23,6 +31,7 @@ class App extends React.Component{
       <div>
         <div className= "header">(this.props.title)</div>
         <Plants/>
+        <PlantsList/>
         </div>
     );
   }
