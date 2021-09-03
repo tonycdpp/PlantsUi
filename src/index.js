@@ -4,6 +4,12 @@ import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// const fetchPlants = async () => {
+//   const response = await fetch('https://plants-api.azurewebsites.net/Plants');
+//   const data = await response.json;
+//   console.log(data);
+// }
+
 const PlantsList = (props) => (
   <div>
     <Plants />
