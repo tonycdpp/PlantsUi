@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import UserPlant from "./components/UserPlant";
 
 import './App.css';
-
-
 
 var testData =
     [
@@ -54,7 +52,7 @@ const UserPlants = (props) => (
 )
 
 export default function App() {
-    const [userPlants, setUserPlants] = useState();
+    // const [userPlants, setUserPlants] = useState();
     return (
         <UserPlants />
     );
