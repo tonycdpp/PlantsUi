@@ -16,7 +16,6 @@ const UserPlants = (props) => (
 
 export default function App() {
 
-
     //TODO: make data appear on user login
     const [hasError, setErrors] = useState(false);
     const [userPlants, setUserPlants] = useState([testData]);
@@ -36,11 +35,10 @@ export default function App() {
         fetchData();
         console.log(userPlants)
         console.log(testData)
-    });
+    },[]);
 
 
     return (
-        <div></div>
-        // <UserPlants userPlants={userPlants} />
+        <UserPlants userPlants={userPlants} />
     );
 }
