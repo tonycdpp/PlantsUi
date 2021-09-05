@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 function signIn() {
   console.log('Signed in')
@@ -6,10 +7,12 @@ function signIn() {
 
 const User = (props) => {
 
- return (
+  return (
     <div className="user-profile" style={{ margin: '1rem' }}>
       <div className="info">
-        <div className="name"><a href={props.RowKey}>{props.UserName}</a> <button onClick={signIn}>Log in</button></div>      
+        <div className="name">
+          <Link to={`users/${props.RowKey}/plants`}>Log in as {props.UserName}</Link>
+        </div>
       </div>
     </div>
   );
