@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import UserPlantsFetcher from "./components/user-plants/UserPlantsFetcher";
 import UsersFetcher from "./components/users-login/UsersFetcher";
 import './App.css';

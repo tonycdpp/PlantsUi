@@ -9,7 +9,7 @@ export default function UserPlantsFetcher() {
     console.log(userrowkey);
 
     async function fetchUserPlants(userId) {
-        const res = axios.get(`https://plants-api.azurewebsites.net/users/${userId}/plants`)
+        axios.get(`https://plants-api.azurewebsites.net/users/${userId}/plants`)
             .then(response => {
                 setUserPlants(response.data);
                 // console.log(response.data)
