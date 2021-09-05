@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Users from "./components/users/Users";
-import UserPlants from "./components/userplants/UserPlants";
+import Users from "./components/users-login/Users";
+import UserPlants from "./components/user-plants/UserPlants";
 import './App.css';
 import axios from 'axios';
+import { BrowserRouter, Route, Link } from "react-router-dom";
+
 
 export default function App() {
 
@@ -15,35 +17,44 @@ export default function App() {
 
     async function fetchUsers() {
         const res = axios.get(`https://plants-api.azurewebsites.net/users`)
-        .then(response => {
-            setUsers(response.data);
-            console.log(response.data)
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
+            .then(response => {
+                setUsers(response.data);
+                console.log(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     async function fetchUserPlants(userId) {
         const res = axios.get(`https://plants-api.azurewebsites.net/users/${userId}/plants`)
-        .then(response => {
-            setUserPlants(response.data);
-            console.log(response.data)
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
+            .then(response => {
+                setUserPlants(response.data);
+                console.log(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     useEffect(() => {
         fetchUsers();
-        // fetchUserPlants('039c9b79-8dfc-4e9a-85ec-33f350f3bd2e');
+        fetchUserPlants('039c9b79-8dfc-4e9a-85ec-33f350f3bd2e');
         console.log(users)
-    },[]);
+    }, []);
+
 
 
     return (
-        // <UserPlants userPlants={userPlants} />
-        <Users data={users} />
+        <React.Fragment>
+            <main>
+                <BrowserRouter>
+                    <div>
+                        <Route path="/" render={() => <Users data={users} />} />
+                        <Route path="/user-plants" render={() => <UserPlants userPlants={userPlants} />} />
+                    </div>
+                </BrowserRouter>
+            </main>
+        </React.Fragment>
     );
 }
