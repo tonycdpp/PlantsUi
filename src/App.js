@@ -2,7 +2,7 @@ import React from 'react';
 import UserPlantsFetcher from "./components/user-plants/UserPlantsFetcher";
 import UsersFetcher from "./components/users-login/UsersFetcher";
 import './App.css';
-import { BrowserRouter as Router, Route, useParams } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 export default function App() {
     return (
