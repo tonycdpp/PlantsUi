@@ -3,8 +3,8 @@ import axios from 'axios';
 import PlantButton from '../shared/PlantButton';
 
 var plant;
-// var baseUrl = "https://plants-api.azurewebsites.net"
-var baseUrl = "https://localhost:44391"
+var baseUrl = "https://plants-api.azurewebsites.net"
+// var baseUrl = "https://localhost:44391"
 
 function water(userplant) {
   console.log(`UserPlant.js: Watering action on this plant ${userplant}`);
