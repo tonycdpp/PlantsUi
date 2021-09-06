@@ -4,7 +4,6 @@ function PlantButton(props) {
   return (
     <button onClick={() => 
       {
-        props.stateUpdated();
         props.action()
       }
     }>

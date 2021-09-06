@@ -3,6 +3,9 @@ import UserPlants from "./UserPlants";
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 
+// var baseUrl = "https://plants-api.azurewebsites.net"
+var baseUrl = "https://localhost:44391"
+
 export default function UserPlantsFetcher() {
     const [userPlants, setUserPlants] = useState([]);
     const { userrowkey } = useParams();
@@ -12,12 +15,14 @@ export default function UserPlantsFetcher() {
     {
         console.log(`UserPlantsFetcher.js: Refreshing state`);
         fetchUserPlants(userrowkey);
+        // setUserPlants([]);
     }
 
     async function fetchUserPlants(userId) {
-        axios.get(`https://plants-api.azurewebsites.net/users/${userId}/plants`)
+        axios.get(`${baseUrl}/users/${userId}/plants`)
             .then(response => {
                 setUserPlants(response.data);
+                console.log("setUserPlants => ")
                 console.log(response.data)
             })
             .catch(function (error) {
