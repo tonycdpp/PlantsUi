@@ -4,8 +4,8 @@ import UserPlant from "./UserPlant";
 
 var plant;
 
-function stateUpdated() {
-    plant.stateUpdated();
+function stateUpdated(updatedObject) {
+    plant.stateUpdated(updatedObject);
     console.log(`UserPlants.js: Refreshing state`);
 }
 

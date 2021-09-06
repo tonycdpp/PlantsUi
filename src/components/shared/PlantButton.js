@@ -4,7 +4,7 @@ function PlantButton(props) {
   return (
     <button onClick={() => 
       {
-        props.action()
+        props.action(props.userplant)
       }
     }>
       {props.display}
