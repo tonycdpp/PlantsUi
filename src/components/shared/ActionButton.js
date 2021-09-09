@@ -1,14 +1,14 @@
 import React from 'react';
 
-function PlantButton(props) {
+function ActionButton(props) {
   return (
     <button onClick={() => 
       {
-        props.action(props.userplant)
+        props.action(props.value)
       }
     }>
       {props.display}
     </button>
   )
 }
-export default PlantButton
+export default ActionButton

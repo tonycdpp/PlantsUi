@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import PlantButton from '../shared/PlantButton';
+import ActionButton from '../shared/ActionButton';
 
 var plant;
 var baseUrl = "https://plants-api.azurewebsites.net"
@@ -43,11 +43,11 @@ const UserPlant = (props) => {
         <div className="name"><a href={props.plantWikipediaUri}>{props.plantName}</a> (owned since:{(new Date(props.ownershipDate)).toLocaleDateString('en-GB')})</div>
         <div className="name" style={{ color: props.wateringDueInDays < 0 ? 'red' : 'black' }}>
           Watering {props.wateringDueInDays < 0 ? ' overdue by ' : ' due in '} {props.wateringDueInDays < 0 ? props.wateringDueInDays * -1 : props.wateringDueInDays} {"days "} 
-          <PlantButton display={"Mark as watered"} action={water} userplant={props.userPlantRowKey} />
+          <ActionButton display={"Mark as watered"} action={water} value={props.userPlantRowKey} />
         </div>
         <div className="name" style={{ color: props.repottingDueInDays < 0 ? 'red' : 'black' }}>
           Repotting {props.repottingDueInDays < 0 ? ' overdue by ' : ' due in '} {props.repottingDueInDays < 0 ? props.repottingDueInDays * -1 : props.repottingDueInDays} {"days "} 
-          <PlantButton display={"Mark as repotted"} action={repot} userplant={props.userPlantRowKey} />
+          <ActionButton display={"Mark as repotted"} action={repot} value={props.userPlantRowKey} />
         </div>
       </div>
     </div>

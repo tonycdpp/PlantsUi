@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Users from "./Users";
 import axios from 'axios';
+var user;
 
-export default function UsersFetcher() {
+
+function loginUser(userRowKey) {
+    console.log(`UsersFetcher.js: Logging in action on this user ${userRowKey}`);
+    user.performLogIn(userRowKey);
+}
+const UsersFetcher = (props) => {
+    user = props;
     const [users, setUsers] = useState([]);
     async function fetchUsers() {
 
@@ -21,6 +28,8 @@ export default function UsersFetcher() {
     }, []);
 
     return (
-        <Users data={users} />
+        <Users loginUser={loginUser} data={users} />
     );
 }
+
+export default UsersFetcher
