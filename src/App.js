@@ -6,12 +6,13 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './components/shared/Header';
 
 export default function App() {
-    const [currentUser, setCurrentUser] = useState()
-
+    const [currentUser, setCurrentUser] = useState();
     const performLogIn = (loggedInUser) =>
     {
-        console.log(`App.js: Logging in action on this user ${loggedInUser}`);
+        console.log(`App.js: Logging in action on this user ${loggedInUser.RowKey}`);
         setCurrentUser(loggedInUser);
+        console.log(`state contains: ${currentUser}`);
+
     }
 
     return (
@@ -19,7 +20,7 @@ export default function App() {
             <Router>
                 <Header currentUser={currentUser}/>
                 <Route exact path="/login" >
-                    <UsersFetcher performLogIn={performLogIn}/>
+                    <UsersFetcher performLogIn={performLogIn} currentUser={currentUser}/>
                 </Route>
                 <Route exact path="/users/:userrowkey/plants" >
                     <UserPlantsFetcher currentUser={currentUser}/>

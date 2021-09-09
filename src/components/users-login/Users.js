@@ -4,7 +4,7 @@ import User from "./User";
 var user;
 
 function loginUser(userRowKey) {
-    console.log(`Users.js: Logging in action on this user ${userRowKey}`);
+    console.log(`Users.js: Logging in action on this user ${userRowKey.RowKey}`);
     user.loginUser(userRowKey);
 }
 

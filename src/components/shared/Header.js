@@ -17,12 +17,13 @@ const Header = (props) => {
         <img src={logo} className="logo" alt="logo" style={{ width: '50px', height: '50px' }} />
       </div>
 
-      {
+      {        
         props.currentUser == undefined ?
-          <NavLink activeClassName="active" to="/login">{"Login   "}</NavLink>
-          : <div>hello {props.currentUser}</div>
-      }
-      <NavLink activeClassName="active" to="/contact">{"All Plants   "}</NavLink>
+          <NavLink activeClassName="active" to="/login">{"Login"}</NavLink>
+          : <div>{`Hello ${props.currentUser.UserName}, `} <NavLink activeClassName="active" to="/logout">{"Log out!"}</NavLink></div>
+      }      
+      <NavLink activeClassName="active" to="/contact">{"All Plants"}</NavLink>
+      
     </header>
   );
 }

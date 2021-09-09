@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Users from "./Users";
 import axios from 'axios';
+import { NavLink } from 'react-router-dom'
+
 var user;
 
-
 function loginUser(userRowKey) {
-    console.log(`UsersFetcher.js: Logging in action on this user ${userRowKey}`);
+    console.log(`UsersFetcher.js: Logging in action on this user ${userRowKey.RowKey}`);
     user.performLogIn(userRowKey);
 }
 const UsersFetcher = (props) => {
@@ -28,7 +29,16 @@ const UsersFetcher = (props) => {
     }, []);
 
     return (
-        <Users loginUser={loginUser} data={users} />
+        <React.Fragment>
+            {
+                props.currentUser == undefined ?
+                    <Users loginUser={loginUser} data={users} />
+                    : <div>
+                        <NavLink to={`users/${props.currentUser.RowKey}/plants`}>Tap to see your plants</NavLink>
+                     </div>
+            }
+        </React.Fragment>
+
     );
 }
 
