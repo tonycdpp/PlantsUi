@@ -1,0 +1,44 @@
+import React from 'react';
+import axios from 'axios';
+import ActionButton from '../shared/ActionButton';
+
+var plant;
+var baseUrl = "https://plants-api.azurewebsites.net"
+// var baseUrl = "https://localhost:44391"
+
+function viewDetails(userplant) {
+  console.log(`UserPlant.js: Watering action on this plant ${userplant}`);
+  axios.put(`${baseUrl}/userplants/${userplant}/watered`, {})
+    .then(response => {
+      // setUserPlants(response.data);
+      console.log("updatedUserPlant => ")
+      plant.stateUpdated(response.data);
+
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+
+const PlantListItem = (props) => {
+  plant = props;
+  // return (
+  //   <div className="plants-profile" style={{ margin: '1rem' }}>
+  //     <img alt={props.plantName} src={props.plantPhotoUri} style={{ width: '100px', height: '100px' }} />
+  //     <div className="info">
+  //       <div className="name"><a href={props.plantWikipediaUri}>{props.plantName}</a> (owned since:{(new Date(props.ownershipDate)).toLocaleDateString('en-GB')})</div>
+  //       <div className="name" style={{ color: props.wateringDueInDays < 0 ? 'red' : 'black' }}>
+  //         Watering {props.wateringDueInDays < 0 ? ' overdue by ' : ' due in '} {props.wateringDueInDays < 0 ? props.wateringDueInDays * -1 : props.wateringDueInDays} {"days "} 
+  //         <ActionButton display={"Mark as watered"} action={water} value={props.userPlantRowKey} />
+  //       </div>
+  //       <div className="name" style={{ color: props.repottingDueInDays < 0 ? 'red' : 'black' }}>
+  //         Repotting {props.repottingDueInDays < 0 ? ' overdue by ' : ' due in '} {props.repottingDueInDays < 0 ? props.repottingDueInDays * -1 : props.repottingDueInDays} {"days "} 
+  //         <ActionButton display={"Mark as repotted"} action={repot} value={props.userPlantRowKey} />
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
+}
+
+export default PlantListItem

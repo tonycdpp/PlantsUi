@@ -12,13 +12,17 @@ export default function App() {
         console.log(`App.js: Logging in action on this user ${loggedInUser.RowKey}`);
         setCurrentUser(loggedInUser);
         console.log(`state contains: ${currentUser}`);
-
+    }
+    const performLogOut = () =>
+    {
+        console.log(`App.js: Logging out action`);
+        setCurrentUser();
     }
 
     return (
         <React.Fragment>
             <Router>
-                <Header currentUser={currentUser}/>
+                <Header performLogOut={performLogOut} currentUser={currentUser} />
                 <Route exact path="/login" >
                     <UsersFetcher performLogIn={performLogIn} currentUser={currentUser}/>
                 </Route>

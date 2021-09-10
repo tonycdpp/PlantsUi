@@ -6,24 +6,35 @@ import {
   BrowserRouter as Router,
   Switch,
 } from 'react-router-dom'
-import NavigationLink from './NavigationLink';
-import { ButtonGroup, Button, DropdownButton, Dropdown, ButtonProps } from 'react-bootstrap';
+import ActionButton from './ActionButton';
+var user;
+
+function logoutUser() {
+  console.log(`User.js: Logging out action`);
+  user.performLogOut()
+}
 
 const Header = (props) => {
-  console.log(props);
+  user=props;
   return (
     <header >
       <div >
         <img src={logo} className="logo" alt="logo" style={{ width: '50px', height: '50px' }} />
       </div>
 
-      {        
+      {
         props.currentUser == undefined ?
           <NavLink activeClassName="active" to="/login">{"Login"}</NavLink>
-          : <div>{`Hello ${props.currentUser.UserName}, `} <NavLink activeClassName="active" to="/logout">{"Log out!"}</NavLink></div>
-      }      
-      <NavLink activeClassName="active" to="/contact">{"All Plants"}</NavLink>
-      
+          :
+          <div>
+            {`Hello ${props.currentUser.UserName}, `}
+            <ActionButton display={`Log out`} action={logoutUser} />  
+            <br/>
+            <NavLink activeClassName="active" to="/contact">{"Tap to see all plants"}</NavLink>
+          </div>
+      }
+    
+
     </header>
   );
 }
