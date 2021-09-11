@@ -1,6 +1,6 @@
 import React from 'react';
 import User from "./User";
-// import './UserPlants.css';
+import css from './Users.module.css';
 var user;
 
 function loginUser(userRowKey) {
@@ -11,7 +11,7 @@ function loginUser(userRowKey) {
 const Users = (props) => {
     user = props;
     return (
-        <div>
+        <div class={css.userslist}>
             {props.data.map(x => <User loginUser={loginUser} key={x.RowKey} {...x} />)}
         </div>
     )

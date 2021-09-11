@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Users from "./Users";
 import axios from 'axios';
 import { NavLink } from 'react-router-dom'
+import css from './UsersFetcher.module.css'
 
 var user;
 var baseUrl = "https://plants-api.azurewebsites.net"
@@ -35,14 +36,21 @@ const UsersFetcher = (props) => {
             {
                 props.currentUser === undefined ?
                     <Users loginUser={loginUser} data={users} />
-                    : <ul>
-                        <li>
-                            <NavLink to={`users/${props.currentUser.RowKey}/plants`}>Tap to see your plants</NavLink>
-                        </li>
-                        <li>
-                            <NavLink activeClassName="active" to="/plants/all">{"Tap to see all plants"}</NavLink>
-                        </li>
-                    </ul>
+                    :
+                    <div class={css.optionslist}>
+                        <ul>
+                            <li class={css.menuoption}>
+                                <img alt={props.plantName} src={props.plantPhotoUri} />
+                                <NavLink to={`users/${props.currentUser.RowKey}/plants`}>Your space</NavLink>
+                                <p>This is where you'll find the list of your plants you own</p>
+                            </li>
+                            <li>
+                                <NavLink activeClassName="active" to="/plants/all">{"Browse"}</NavLink>
+                                <p>Browse through a list of plants, find more about each, and add to your space.</p>
+
+                            </li>
+                        </ul>
+                    </div>
             }
         </React.Fragment>
 

@@ -22,19 +22,19 @@ import css from './PlantListItem.module.css';
 const PlantListItem = (props) => {
   console.log(props);
   return (
-    <div className={css.container}>
+    <div class={css.container}>
       <div class={css.plantimage}>
         <img alt={props.plantName} src={props.plantPhotoUri} />
       </div>
-      <div className={css.centred}>
+      <div class={css.centred}>
         <a href={props.plantWikipediaUri}>{props.plantName}</a>
       </div>
       {
         // eslint-disable-next-line
         props.userPlantRowKey != undefined ?
-          <div className={css.topright}>Already Mine :)</div>
+          <div class={css.topright}>Already Mine :)</div>
           :
-          <div className={css.topright}></div>
+          <div class={css.topright}></div>
 
       }
 

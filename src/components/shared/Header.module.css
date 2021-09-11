@@ -55,7 +55,7 @@ div.username {
 .header a:hover,
 .header button:hover{
   background-color: dodgerblue;
-  color: white;
+  cursor: pointer;
 }
 
 
