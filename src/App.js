@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import UserPlantsFetcher from "./components/user-plants/UserPlantsFetcher";
 import UsersFetcher from "./components/users-login/UsersFetcher";
-import './App.css';
+// import css from './App.module.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './components/shared/Header';
+import AllPlantsFetcher from './components/plants/AllPlantsFetcher';
 
 export default function App() {
     const [currentUser, setCurrentUser] = useState();
@@ -25,6 +26,9 @@ export default function App() {
                 <Header performLogOut={performLogOut} currentUser={currentUser} />
                 <Route exact path="/login" >
                     <UsersFetcher performLogIn={performLogIn} currentUser={currentUser}/>
+                </Route>
+                <Route exact path="/plants/all" >
+                    <AllPlantsFetcher currentUser={currentUser}/>
                 </Route>
                 <Route exact path="/users/:userrowkey/plants" >
                     <UserPlantsFetcher currentUser={currentUser}/>

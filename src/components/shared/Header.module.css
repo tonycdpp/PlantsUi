@@ -1,0 +1,76 @@
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+button{
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+div.logo{
+  float: left;
+}
+
+div.logo h1{
+  float: right;
+  margin: auto;
+  font-size: xx-large;
+}
+
+
+.headerright button,
+.headerright a,
+div.username {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+
+}
+
+.headerright button,
+.headerright a,
+div.username {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-style: none;
+}
+
+.header a:hover,
+.header button:hover{
+  background-color: dodgerblue;
+  color: white;
+}
+
+
+.headerright {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+}

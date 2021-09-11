@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import AllPlants from "./AllPlants";
 import axios from 'axios';
-import { useParams } from "react-router-dom";
 
 var baseUrl = "https://plants-api.azurewebsites.net"
 // var baseUrl = "https://localhost:44391"
 
-export default function AllPlantsFetcher() {
+const AllPlantsFetcher = (props) => {
     const [allPlants, setAllPlants] = useState([]);
-    const { userrowkey } = useParams();
-    console.log(userrowkey);
 
-    const stateUpdated = (updatedObject) => 
-    {
-        setAllPlants(updatedObject);
-    }
-
-    async function fetchUserPlants(userId) {
-        axios.get(`${baseUrl}/plants`)
+    async function fetchAllPlants() {
+        axios.get(`${baseUrl}/users/${props.currentUser.RowKey}/plants/all`)
             .then(response => {
+                console.log(response.data)
                 setAllPlants(response.data);
+
             })
             .catch(function (error) {
                 console.log(error);
@@ -27,10 +21,13 @@ export default function AllPlantsFetcher() {
     }
 
     useEffect(() => {
-        fetchUserPlants(userrowkey);
+        fetchAllPlants();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
-        <AllPlants plants={allPlants} stateUpdated={stateUpdated} />
+        <AllPlants plants={allPlants} />
     );
 }
+
+export default AllPlantsFetcher

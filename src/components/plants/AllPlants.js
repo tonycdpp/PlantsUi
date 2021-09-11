@@ -1,19 +1,11 @@
 import React from 'react';
 import PlantListItem from "./PlantListItem";
-// import './UserPlants.css';
-
-var plant;
-
-function stateUpdated(updatedObject) {
-    plant.stateUpdated(updatedObject);
-    console.log(`UserPlants.js: Refreshing state`);
-}
+import css from "./AllPlants.module.css"
 
 const AllPlants = (props) => {
-    plant=props;
     return (
-        <div>
-            {props.userPlants.map(plant => <PlantListItem stateUpdated={stateUpdated} key={plant.rowKey} {...plant} />)}
+        <div class={css.plantslist}>
+            {props.plants.map(plant => <PlantListItem key={plant.rowKey} {...plant} />)}
         </div>
     )
 }

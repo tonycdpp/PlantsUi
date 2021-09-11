@@ -16,8 +16,8 @@ export default function UserPlantsFetcher() {
         setUserPlants(updatedObject);
     }
 
-    async function fetchUserPlants(userId) {
-        axios.get(`${baseUrl}/users/${userId}/plants`)
+    async function fetchUserPlants() {
+        axios.get(`${baseUrl}/users/${userrowkey}/plants`)
             .then(response => {
                 setUserPlants(response.data);
                 console.log("setUserPlants => ")
@@ -29,7 +29,8 @@ export default function UserPlantsFetcher() {
     }
 
     useEffect(() => {
-        fetchUserPlants(userrowkey);
+        fetchUserPlants();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

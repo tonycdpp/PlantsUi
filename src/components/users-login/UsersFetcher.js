@@ -4,6 +4,8 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom'
 
 var user;
+var baseUrl = "https://plants-api.azurewebsites.net"
+// var baseUrl = "https://localhost:44391"
 
 function loginUser(userRowKey) {
     console.log(`UsersFetcher.js: Logging in action on this user ${userRowKey.RowKey}`);
@@ -14,7 +16,7 @@ const UsersFetcher = (props) => {
     const [users, setUsers] = useState([]);
     async function fetchUsers() {
 
-        axios.get(`https://plants-api.azurewebsites.net/users`)
+        axios.get(`${baseUrl}/users`)
             .then(response => {
                 setUsers(response.data);
                 // console.log(response.data)
@@ -31,11 +33,16 @@ const UsersFetcher = (props) => {
     return (
         <React.Fragment>
             {
-                props.currentUser == undefined ?
+                props.currentUser === undefined ?
                     <Users loginUser={loginUser} data={users} />
-                    : <div>
-                        <NavLink to={`users/${props.currentUser.RowKey}/plants`}>Tap to see your plants</NavLink>
-                     </div>
+                    : <ul>
+                        <li>
+                            <NavLink to={`users/${props.currentUser.RowKey}/plants`}>Tap to see your plants</NavLink>
+                        </li>
+                        <li>
+                            <NavLink activeClassName="active" to="/plants/all">{"Tap to see all plants"}</NavLink>
+                        </li>
+                    </ul>
             }
         </React.Fragment>
 
