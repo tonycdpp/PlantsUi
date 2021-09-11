@@ -30,7 +30,8 @@ const PlantListItem = (props) => {
         <a href={props.plantWikipediaUri}>{props.plantName}</a>
       </div>
       {
-        props.userPlantRowKey !== undefined ?
+        // eslint-disable-next-line
+        props.userPlantRowKey != undefined ?
           <div className={css.topright}>Already Mine :)</div>
           :
           <div className={css.topright}></div>
