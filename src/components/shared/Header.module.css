@@ -1,76 +1,71 @@
-* {box-sizing: border-box;}
-
-body { 
-  margin: 0;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+* {
+    box-sizing: border-box;
 }
 
-button{
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+button {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-style: none;
+}
+
+button:hover,
+a:hover {
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    -webkit-text-stroke: 0.3px black;
+    cursor: pointer;
+}
+
+body {
+    margin: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .header {
-  overflow: hidden;
-  background-color: #f1f1f1;
-  padding: 20px 10px;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 20px 10px;
 }
 
-div.logo{
-  float: left;
+div.logo {
+    float: left;
 }
 
-div.logo h1{
-  float: right;
-  margin: auto;
-  font-size: xx-large;
-}
-
-
-.headerright button,
-.headerright a,
-div.username {
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
-
+div.logo h1 {
+    float: right;
+    margin: auto;
+    font-size: xx-large;
 }
 
 .headerright button,
 .headerright a,
 div.username {
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
-  border-style: none;
+    float: left;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-style: none;
 }
-
-.header a:hover,
-.header button:hover{
-  background-color: dodgerblue;
-  cursor: pointer;
-}
-
 
 .headerright {
-  float: right;
+    float: right;
 }
 
 @media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .header-right {
-    float: none;
-  }
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    .header-right {
+        float: none;
+    }
 }

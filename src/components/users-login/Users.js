@@ -11,7 +11,7 @@ function loginUser(userRowKey) {
 const Users = (props) => {
     user = props;
     return (
-        <div class={css.userslist}>
+        <div className={css.userslist}>
             {props.data.map(x => <User loginUser={loginUser} key={x.RowKey} {...x} />)}
         </div>
     )

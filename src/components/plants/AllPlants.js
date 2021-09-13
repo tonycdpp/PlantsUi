@@ -4,7 +4,7 @@ import css from "./AllPlants.module.css"
 
 const AllPlants = (props) => {
     return (
-        <div class={css.plantslist}>
+        <div className={css.plantslist}>
             {props.plants.map(plant => <PlantListItem key={plant.rowKey} {...plant} />)}
         </div>
     )

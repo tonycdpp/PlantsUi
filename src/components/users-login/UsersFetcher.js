@@ -37,17 +37,25 @@ const UsersFetcher = (props) => {
                 props.currentUser === undefined ?
                     <Users loginUser={loginUser} data={users} />
                     :
-                    <div class={css.optionslist}>
+                    <div className={css.optionslist}>
                         <ul>
-                            <li class={css.menuoption}>
-                                <img alt={props.plantName} src={props.plantPhotoUri} />
-                                <NavLink to={`users/${props.currentUser.RowKey}/plants`}>Your space</NavLink>
-                                <p>This is where you'll find the list of your plants you own</p>
+                            <li className={css.menuoption}>
+                                <NavLink to={`users/${props.currentUser.RowKey}/plants`}>
+                                    <div className={css.menuoptiondiv}>
+                                        <img alt={props.plantName} src={props.plantPhotoUri} />
+                                        {"Your plants"}
+                                        <p>This is where you'll find the list of your plants you own</p>
+                                    </div>
+                                </NavLink>
                             </li>
                             <li>
-                                <NavLink activeClassName="active" to="/plants/all">{"Browse"}</NavLink>
-                                <p>Browse through a list of plants, find more about each, and add to your space.</p>
-
+                                <NavLink activeClassName="active" to="/plants/all">
+                                    <div className={css.menuoptiondiv}>
+                                        <img alt={props.plantName} src={props.plantPhotoUri} />
+                                        {"Plants database"}
+                                        <p>This is where you'll find the list of your plants you own</p>
+                                    </div>
+                                </NavLink>
                             </li>
                         </ul>
                     </div>
