@@ -4,13 +4,18 @@ import axios from 'axios';
 import LoadingIndicator from '../shared/LoadingIndicator';
 import { trackPromise, usePromiseTracker } from "react-promise-tracker"
 
+var currentUser;
 var baseUrl = "https://plants-api.azurewebsites.net"
 // var baseUrl = "https://localhost:44391"
 
 const AllPlantsFetcher = (props) => {
     const [allPlants, setAllPlants] = useState([]);
     const { promiseInProgress } = usePromiseTracker();
+    currentUser = props.currentUser;
 
+    const stateUpdated = (updatedObject) => {
+        setAllPlants(updatedObject);
+    }
 
     async function fetchAllPlants() {
         if (props.currentUser !== undefined) {
@@ -35,7 +40,7 @@ const AllPlantsFetcher = (props) => {
     return (
         <React.Fragment>
             <LoadingIndicator promiseInProgress={promiseInProgress} />
-            <AllPlants plants={allPlants} />
+            <AllPlants plants={allPlants} currentUser={currentUser} stateUpdated={stateUpdated}/>
         </React.Fragment>
 
     );
