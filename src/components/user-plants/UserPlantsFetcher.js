@@ -20,15 +20,16 @@ export default function UserPlantsFetcher() {
     }
 
     async function fetchUserPlants() {
-        axios.get(`${baseUrl}/users/${userrowkey}/plants`)
-            .then(response => {
-                setUserPlants(response.data);
-                console.log("setUserPlants => ")
-                console.log(response.data)
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        trackPromise(
+            axios.get(`${baseUrl}/users/${userrowkey}/plants`)
+                .then(response => {
+                    setUserPlants(response.data);
+                    console.log("setUserPlants => ")
+                    console.log(response.data)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                }));
     }
 
     useEffect(() => {
