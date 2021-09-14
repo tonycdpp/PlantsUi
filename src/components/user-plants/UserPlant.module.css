@@ -4,13 +4,16 @@ div.container {
     text-align: center;
     color: white;
     margin: 20px 0 0 0;
+    border: #cccccc solid 1px ;
+    border-radius: 10px;
+    background: rgb(237, 255, 227);
 }
 
 div.centredleft {
-    width: 200px;
+    width: 180px;
     position: absolute;
     top: 50%;
-    left: 100px;
+    left: 90px;
     transform: translate(-50%, -50%);
     background-color: rgba(140, 140, 140, 0.6);
     font-size: large;
@@ -22,7 +25,6 @@ div.centredleft a {
     text-decoration: none;
     font-weight: bolder;
     font-size: larger;
-
 }
 
 div.centredleft a:hover {
@@ -32,11 +34,11 @@ div.centredleft a:hover {
 }
 
 .plantimage img {
-    width: 200px;
+    width: 180px;
     height: 150px;
     object-fit: cover;
     float: left;
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
 }
 
 div.topleft {
@@ -52,11 +54,10 @@ div.topleft {
 
 }
 
-
 div.topright {
     position: absolute;
     top: 10px;
-    right: 3px;
+    right: 10px;
     /* background-color: rgba(140,140, 140, 0.6);  */
     font-size: x-small;
     padding: 2%;
@@ -65,7 +66,7 @@ div.topright {
 div.bottomright {
     position: absolute;
     bottom: 15px;
-    right: 0px;
+    right: 7px;
     /* background-color: rgba(140,140, 140, 0.6);  */
     font-size: x-small;
     padding: 2%;
