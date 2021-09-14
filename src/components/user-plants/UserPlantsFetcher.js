@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import UserPlants from "./UserPlants";
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import LoadingIndicator from '../shared/LoadingIndicator';
+import { trackPromise, usePromiseTracker } from "react-promise-tracker"
 
 var baseUrl = "https://plants-api.azurewebsites.net"
 // var baseUrl = "https://localhost:44391"
@@ -9,10 +11,11 @@ var baseUrl = "https://plants-api.azurewebsites.net"
 export default function UserPlantsFetcher() {
     const [userPlants, setUserPlants] = useState([]);
     const { userrowkey } = useParams();
+    const { promiseInProgress } = usePromiseTracker();
+
     console.log(userrowkey);
 
-    const stateUpdated = (updatedObject) => 
-    {
+    const stateUpdated = (updatedObject) => {
         setUserPlants(updatedObject);
     }
 
@@ -34,6 +37,9 @@ export default function UserPlantsFetcher() {
     }, []);
 
     return (
-        <UserPlants userPlants={userPlants} stateUpdated={stateUpdated} />
+        <React.Fragment>
+            <LoadingIndicator promiseInProgress={promiseInProgress} />
+            <UserPlants userPlants={userPlants} stateUpdated={stateUpdated} />
+        </React.Fragment>
     );
 }

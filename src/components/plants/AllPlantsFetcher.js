@@ -1,35 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import AllPlants from "./AllPlants";
 import axios from 'axios';
+import LoadingIndicator from '../shared/LoadingIndicator';
+import { trackPromise, usePromiseTracker } from "react-promise-tracker"
 
 var baseUrl = "https://plants-api.azurewebsites.net"
-    // var baseUrl = "https://localhost:44391"
+// var baseUrl = "https://localhost:44391"
 
 const AllPlantsFetcher = (props) => {
     const [allPlants, setAllPlants] = useState([]);
+    const { promiseInProgress } = usePromiseTracker();
+
 
     async function fetchAllPlants() {
         if (props.currentUser !== undefined) {
-            axios.get(`${baseUrl}/users/${props.currentUser.RowKey}/plants/all`)
-                .then(response => {
-                    console.log(response.data)
-                    setAllPlants(response.data);
+            trackPromise(
+                axios.get(`${baseUrl}/users/${props.currentUser.RowKey}/plants/all`)
+                    .then(response => {
+                        console.log(response.data)
+                        setAllPlants(response.data);
 
-                })
-                .catch(function(error) {
-                    console.log(error);
-                });
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    }));
         }
     }
 
     useEffect(() => {
         fetchAllPlants();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line
     }, []);
 
-    return ( <
-        AllPlants plants = { allPlants }
-        />
+    return (
+        <React.Fragment>
+            <LoadingIndicator promiseInProgress={promiseInProgress} />
+            <AllPlants plants={allPlants} />
+        </React.Fragment>
+
     );
 }
 
