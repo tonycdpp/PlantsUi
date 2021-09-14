@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Users from "./Users";
 import axios from 'axios';
-import { NavLink } from 'react-router-dom'
-import css from './UsersFetcher.module.css'
+import UserOptions from '../user-options/UserOptions';
 
 var user;
 var baseUrl = "https://plants-api.azurewebsites.net"
@@ -37,28 +36,7 @@ const UsersFetcher = (props) => {
                 props.currentUser === undefined ?
                     <Users loginUser={loginUser} data={users} />
                     :
-                    <div className={css.optionslist}>
-                        <ul>
-                            <li className={css.menuoption}>
-                                <NavLink to={`users/${props.currentUser.RowKey}/plants`}>
-                                    <div className={css.menuoptiondiv}>
-                                        <img alt={props.plantName} src={props.plantPhotoUri} />
-                                        {"Your plants"}
-                                        <p>This is where you'll find the list of your plants you own</p>
-                                    </div>
-                                </NavLink>
-                            </li>
-                            <li className={css.menuoption}>
-                                <NavLink activeClassName="active" to="/plants/all">
-                                    <div className={css.menuoptiondiv}>
-                                        <img alt={props.plantName} src={props.plantPhotoUri} />
-                                        {"Plants database"}
-                                        <p>This is where you'll find the list of your plants you own</p>
-                                    </div>
-                                </NavLink>
-                            </li>
-                        </ul>
-                    </div>
+                    <UserOptions currentUser={props.currentUser}/>
             }
         </React.Fragment>
 

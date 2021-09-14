@@ -3,7 +3,7 @@ div.container {
     position: relative;
     text-align: center;
     color: white;
-    margin: 20px 0 0 0;
+    margin: 10px 0 10px 0;
     border: #cccccc solid 1px ;
     border-radius: 10px;
     background: rgb(237, 255, 227);
@@ -14,7 +14,7 @@ div.containernocolour {
     position: relative;
     text-align: center;
     color: white;
-    margin: 20px 0 0 0;
+    margin: 10px 0 10px 0;
     border: #cccccc solid 1px ;
     border-radius: 10px;
     background: rgb(219, 219, 219);
@@ -92,4 +92,5 @@ div.bottomright {
     padding: 2%;
     max-width: 150px;
     color: black;
+    text-align: justify;
 }

@@ -49,7 +49,7 @@ const PlantListItem = (props) => {
               <ActionButton warning={"true"} display={"Remove"} action={viewDetails} value={props.userPlantRowKey} />
             </div>
             <div className={css.bottomright}>
-              {`Owned since `} <b>{(new Date(props.ownershipDate)).toLocaleDateString('en-GB')}</b>
+              {`Owned since `} <b>{(new Date(props.ownershipDate)).toLocaleDateString('en-GB')}</b> 👍  
             </div>
           </div>
       }

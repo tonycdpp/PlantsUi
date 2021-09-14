@@ -1,0 +1,44 @@
+div.optionslist{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    align-items: center;
+}
+
+div.menuoption {
+   margin: 5px;
+   display: grid;
+   max-width: 200px;
+}
+
+div.menuoption a{
+    float: left;
+    text-align: center;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    border-style: none;
+    border-radius: 12px;
+    background: green;
+    text-decoration: none;
+    color: white;
+    border: solid darkgreen 1px;
+}
+
+div.menuoption p{
+    font-size: x-small;   
+    text-align: center;
+}
+
+div.menuoption a:hover{
+    background-color:lightgreen;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+div.menuoption a{
+    text-decoration: none;
+    color: white;
+}
