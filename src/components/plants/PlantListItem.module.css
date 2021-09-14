@@ -1,46 +1,95 @@
-.container {
-    width: 200px;
+div.container {
+    width: 350px;
     position: relative;
     text-align: center;
     color: white;
+    margin: 20px 0 0 0;
+    border: #cccccc solid 1px ;
+    border-radius: 10px;
+    background: rgb(237, 255, 227);
 }
 
-div.centred a {
+div.containernocolour {
+    width: 350px;
+    position: relative;
+    text-align: center;
     color: white;
-    text-decoration: none;
-    -webkit-text-stroke: 1px grey;
+    margin: 20px 0 0 0;
+    border: #cccccc solid 1px ;
+    border-radius: 10px;
+    background: rgb(219, 219, 219);
 }
 
-div.centred a:hover {
-    color: green;
-    text-decoration: none;
-    -webkit-text-stroke: 1px white;
-    background: none;
-}
-
-.plantimage img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-}
-
-div.centred {
-    width: 100%;
+div.centredleft {
+    width: 180px;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 90px;
     transform: translate(-50%, -50%);
     background-color: rgba(140, 140, 140, 0.6);
     font-size: large;
     padding: 8%;
 }
 
+div.centredleft a {
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+div.centredleft a:hover {
+    color: lightgreen;
+    text-decoration: none;
+    background: none;
+}
+
+.plantimage img {
+    width: 180px;
+    height: 150px;
+    object-fit: cover;
+    float: left;
+    border-radius: 10px 0 0 10px;
+}
+
+div.topleft {
+    position: absolute;
+    top: 3%;
+    right: 77%;
+    /* background-color: rgba(140,140, 140, 0.6);  */
+    font-size: x-small;
+    background: green;
+    padding: 2px;
+    border-radius: 2px;
+    border: white solid 1px;
+
+}
+
 div.topright {
     position: absolute;
-    top: 3px;
-    right: 3px;
+    top: 10px;
+    right: 8px;
     /* background-color: rgba(140,140, 140, 0.6);  */
     font-size: x-small;
     padding: 2%;
-    -webkit-text-stroke: 0.4px black;
+}
+
+div.toprightwarning {
+    position: absolute;
+    top: 10px;
+    right: 38px;
+    /* background-color: rgba(140,140, 140, 0.6);  */
+    font-size: x-small;
+    padding: 2%;
+}
+
+div.bottomright {
+    position: absolute;
+    bottom: 15px;
+    right: 7px;
+    /* background-color: rgba(140,140, 140, 0.6);  */
+    font-size: x-small;
+    padding: 2%;
+    max-width: 150px;
+    color: black;
 }

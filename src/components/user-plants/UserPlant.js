@@ -46,13 +46,13 @@ const UserPlant = (props) => {
       <div className={css.centredleft}>
         <a href={props.plantWikipediaUri}>{props.plantName}</a>
       </div>
-      {
+      {/* {
         // eslint-disable-next-line
         props.userPlantRowKey != undefined ?
           <div className={css.topleft}>Already Mine :)</div>
           :
           <div className={css.topleft}></div>
-      }
+      } */}
       <div className={css.topright} style={{ color: props.wateringDueInDays < 0 ? 'red' : 'black' }}>
         <div>
           Watering {props.wateringDueInDays < 0 ? ' overdue by ' : ' due in '} {props.wateringDueInDays < 0 ? props.wateringDueInDays * -1 : props.wateringDueInDays} {"days "}

@@ -3,7 +3,7 @@ import css from './ActionButton.module.css';
 
 function ActionButton(props) {
   return (
-    <button className={css.actionbutton} onClick={() => 
+    <button className={props.warning === 'true' ? css.warningbutton : css.ActionButton} onClick={() => 
       {
         props.action(props.value)
       }

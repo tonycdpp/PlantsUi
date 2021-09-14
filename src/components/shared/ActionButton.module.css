@@ -20,3 +20,25 @@ button.actionbutton {
     text-decoration: none;
     cursor: pointer;
   }
+
+  button.warningbutton {
+    color: white;
+    text-align: center;
+    padding: 4px 8px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight:bold;
+    line-height: 25px;
+    border-style: none;
+    border-radius: 12px;
+    background: rgb(168, 0, 0);
+    border: solid black 1px;
+  }
+  
+  button.warningbutton:hover
+  {
+    background-color:red;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+  }

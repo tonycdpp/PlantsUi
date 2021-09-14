@@ -22,6 +22,7 @@ button, a.button {
   border-style: none;
   border-radius: 12px;
   background: green;
+  border: solid darkgreen 1px;
 }
 
 button:hover,
