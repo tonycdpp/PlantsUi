@@ -13,8 +13,6 @@ export default function UserPlantsFetcher() {
     const { userrowkey } = useParams();
     const { promiseInProgress } = usePromiseTracker();
 
-    console.log(userrowkey);
-
     const stateUpdated = (updatedObject) => {
         setUserPlants(updatedObject);
     }

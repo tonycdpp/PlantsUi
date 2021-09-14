@@ -2,7 +2,6 @@ import React from 'react';
 import UserPlant from "./UserPlant";
 import css from './UserPlants.module.css';
 
-
 var plant;
 
 function stateUpdated(updatedObject) {
