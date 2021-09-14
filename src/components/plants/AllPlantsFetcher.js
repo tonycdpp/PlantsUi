@@ -3,21 +3,23 @@ import AllPlants from "./AllPlants";
 import axios from 'axios';
 
 var baseUrl = "https://plants-api.azurewebsites.net"
-// var baseUrl = "https://localhost:44391"
+    // var baseUrl = "https://localhost:44391"
 
 const AllPlantsFetcher = (props) => {
     const [allPlants, setAllPlants] = useState([]);
 
     async function fetchAllPlants() {
-        axios.get(`${baseUrl}/users/${props.currentUser.RowKey}/plants/all`)
-            .then(response => {
-                console.log(response.data)
-                setAllPlants(response.data);
+        if (props.currentUser !== undefined) {
+            axios.get(`${baseUrl}/users/${props.currentUser.RowKey}/plants/all`)
+                .then(response => {
+                    console.log(response.data)
+                    setAllPlants(response.data);
 
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+        }
     }
 
     useEffect(() => {
@@ -25,8 +27,9 @@ const AllPlantsFetcher = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    return (
-        <AllPlants plants={allPlants} />
+    return ( <
+        AllPlants plants = { allPlants }
+        />
     );
 }
 

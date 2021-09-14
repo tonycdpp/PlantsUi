@@ -1,6 +1,7 @@
 import React from 'react';
 import UserPlant from "./UserPlant";
-// import './UserPlants.css';
+import css from './UserPlants.module.css';
+
 
 var plant;
 
@@ -10,9 +11,9 @@ function stateUpdated(updatedObject) {
 }
 
 const UserPlants = (props) => {
-    plant=props;
+    plant = props;
     return (
-        <div>
+        <div className={css.myplantscentredcontainer}>
             {props.userPlants.map(userPlant => <UserPlant stateUpdated={stateUpdated} key={userPlant.userPlantRowKey} {...userPlant} />)}
         </div>
     )

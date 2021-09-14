@@ -48,7 +48,7 @@ const UsersFetcher = (props) => {
                                     </div>
                                 </NavLink>
                             </li>
-                            <li>
+                            <li className={css.menuoption}>
                                 <NavLink activeClassName="active" to="/plants/all">
                                     <div className={css.menuoptiondiv}>
                                         <img alt={props.plantName} src={props.plantPhotoUri} />

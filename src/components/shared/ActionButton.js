@@ -1,8 +1,9 @@
 import React from 'react';
+import css from './ActionButton.module.css';
 
 function ActionButton(props) {
   return (
-    <button onClick={() => 
+    <button className={css.actionbutton} onClick={() => 
       {
         props.action(props.value)
       }

@@ -26,7 +26,7 @@ const Header = (props) => {
       <div className={css.headerright}>
         {
           props.currentUser === undefined ?
-            <NavLink activeClassName="active" to="/login">{"Login"}</NavLink>
+            <NavLink to="/login">{"Login"}</NavLink>
             :
             <div className={css.headrbutton}>
               <div className={css.username}>{`Hello ${props.currentUser.UserName}, `}</div>

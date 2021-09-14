@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import UserPlantsFetcher from "./components/user-plants/UserPlantsFetcher";
 import UsersFetcher from "./components/users-login/UsersFetcher";
-// import css from './App.module.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './components/shared/Header';
 import AllPlantsFetcher from './components/plants/AllPlantsFetcher';
+// eslint-disable-next-line
+import css from './App.module.css'
 
 export default function App() {
     const [currentUser, setCurrentUser] = useState();

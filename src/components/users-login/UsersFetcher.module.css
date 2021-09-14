@@ -1,11 +1,5 @@
-a {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: black;
-    font-size: xx-large;
-    text-decoration: none;
-}
 
-li:hover {
+li.menuoption:hover {
     background-color: green;
     color: white;
     text-decoration: none;
@@ -25,16 +19,16 @@ ul {
     list-style-type: none;
 }
 
-li img {
+li.menuoption img {
     float: left;
     margin: 0 15px 0 0;
 }
 
-li p {
+li.menuoption p {
     font: 200 12px/1.5 Georgia, Times New Roman, serif;
 }
 
-li {
+li.menuoption {
     padding: 10px;
     overflow: auto;
 }

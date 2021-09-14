@@ -35,10 +35,7 @@ const PlantListItem = (props) => {
           <div className={css.topright}>Already Mine :)</div>
           :
           <div className={css.topright}></div>
-
       }
-
-
     </div>
   );
 }
