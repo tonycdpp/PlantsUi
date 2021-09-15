@@ -1,22 +1,22 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .notification {
+}
+
+.notification {
     color: white;
     text-decoration: none;
     padding: 5px 5px;
     position: relative;
     display: inline-block;
     border-radius: 2px;
-  }
+}
 
-  .notification img.bell{
-      width: 40px;
-      height: 40px;
-  }
+.notification img.bell {
+    width: 40px;
+    height: 40px;
+}
 
-  .notification img.bellfull{
+.notification img.bellfull {
     width: 40px;
     height: 40px;
     display: none;
@@ -26,16 +26,12 @@ body {
     z-index: 99;
 }
 
-.notification:hover .bellfull{
+.notification:hover .bellfull {
     display: inline;
     cursor: pointer;
 }
-  
-  .notification:hover {
-    /* background: red; */
-  }
-  
-  .notification .badge {
+
+.notification .badge {
     position: absolute;
     top: -10px;
     right: -5px;
@@ -43,4 +39,4 @@ body {
     border-radius: 50%;
     background-color: red;
     color: white;
-  }
+}
