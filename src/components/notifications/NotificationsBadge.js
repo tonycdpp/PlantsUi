@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import css from './NotificationsBadge.module.css'
 import bell from "./../notifications/bell.png"
 import bellhover from "./../notifications/bell_full.png"
