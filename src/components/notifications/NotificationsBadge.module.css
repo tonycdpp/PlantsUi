@@ -11,6 +11,13 @@ body {
     border-radius: 2px;
 }
 
+.notificationslist {
+    background-color: rgba(255, 100, 100, 0.85);
+    padding: 2px 10px;
+    color: white;
+    border-radius: 3;
+}
+
 .notification img.bell {
     width: 40px;
     height: 40px;
@@ -40,3 +47,17 @@ body {
     background-color: red;
     color: white;
 }
+
+.popoverbody {
+    padding: 3px;;
+    position: absolute;
+    top: 20px;
+    left: -150px;
+    z-index: 1070;
+    display: block;
+    width: 180px;
+    border: gray solid 1px;
+    border-radius: 5px;
+    font-size: .650em;
+}
+

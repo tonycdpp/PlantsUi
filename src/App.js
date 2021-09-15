@@ -11,7 +11,6 @@ export default function App() {
     const [currentUser, setCurrentUser] = useState();
     const performLogIn = (loggedInUser) =>
     {
-        console.log(`App.js: Logging in action on this user ${loggedInUser.RowKey}`);
         setCurrentUser(loggedInUser);
         console.log(`state contains: ${currentUser}`);
     }
