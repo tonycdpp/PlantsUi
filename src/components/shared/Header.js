@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import ActionButton from './ActionButton';
 import { useHistory } from 'react-router-dom';
 import css from "./Header.module.css"
+import NotificationsFetcher from '../notifications/NotificationsFetcher';
 
 var user;
 var history;
@@ -31,6 +32,7 @@ const Header = (props) => {
             <div className={css.headrbutton}>
               <div className={css.username}>{`Hello ${props.currentUser.UserName}, `}</div>
               <ActionButton display={`Log out`} action={logoutUser} />
+              <NotificationsFetcher currentUser={props.currentUser}/>
             </div>
         }
       </div>
