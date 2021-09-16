@@ -11,7 +11,7 @@ var notifications;
 var baseUrl = "https://plants-api.azurewebsites.net"
 // var baseUrl = "https://localhost:44391"
 
-function addUserPlant(notificationRowKey) {
+function markAsRead(notificationRowKey) {
   axios.put(`${baseUrl}/usernotifications/${notificationRowKey}/MarkAsRead`)
     .then(response => {
       notifications.stateUpdated(response.data);
@@ -25,7 +25,7 @@ const NotificationsBadge = (props) => {
   notifications = props;
 
   const onLinkClick = (notificationRowKey) => {
-    addUserPlant(notificationRowKey);
+    markAsRead(notificationRowKey);
     if (props.notifications.length === 1) {
       document.body.click(); //to close the popover
     }
@@ -35,7 +35,7 @@ const NotificationsBadge = (props) => {
     <Popover>
       <div className={css.popoverbody}>
         {props.notifications.map(notification =>
-          <div className={css.notificationitem} onClick={() => onLinkClick(notification.rowKey)}>
+          <div  key={notification.rowKey} className={css.notificationitem} onClick={() => onLinkClick(notification.rowKey)}>
             {
               notification.read === true ?
                 notification.description

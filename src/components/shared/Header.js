@@ -11,7 +11,6 @@ var history;
 
 function logoutUser() {
   console.log(`User.js: Logging out action`);
-  // eslint-disable-next-line
   user.performLogOut()
   history.push('/');
 }
@@ -23,7 +22,7 @@ const Header = (props) => {
     <div className={css.header}>
       <div className={css.logo}>
         <img src={logo} alt="logo" style={{ width: '50px', height: '50px' }} />
-        <h1>Just Plants 3</h1>
+        <h1>Just Plants</h1>
       </div>
       <div className={css.headerright}>
         {
