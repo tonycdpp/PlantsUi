@@ -4,7 +4,7 @@ import bell from "./../notifications/bell.png"
 import bellhover from "./../notifications/bell_full.png"
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const NotificationsBadge = (props) => {
 
