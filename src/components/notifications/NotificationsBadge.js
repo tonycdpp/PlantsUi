@@ -4,29 +4,51 @@ import bell from "./../notifications/bell.png"
 import bellhover from "./../notifications/bell_full.png"
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import { Link } from 'react-router-dom'
+import axios from 'axios';
+// import { Link } from 'react-router-dom'
+
+var notifications;
+var baseUrl = "https://plants-api.azurewebsites.net"
+// var baseUrl = "https://localhost:44391"
+
+function addUserPlant(notificationRowKey) {
+  axios.put(`${baseUrl}/usernotifications/${notificationRowKey}/MarkAsRead`)
+    .then(response => {
+      notifications.stateUpdated(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
 
 const NotificationsBadge = (props) => {
+  notifications = props;
 
-  const onLinkClick = (e) => {
-    document.body.click();
+  const onLinkClick = (notificationRowKey) => {
+    addUserPlant(notificationRowKey);
+    if (props.notifications.length === 1) {
+      document.body.click(); //to close the popover
+    }
   };
 
   const popover = (
     <Popover>
       <div className={css.popoverbody}>
         {props.notifications.map(notification =>
-          <div className={css.notificationitem}>
+          <div className={css.notificationitem} onClick={() => onLinkClick(notification.rowKey)}>
             {
-              <b> {notification.description} </b>
+              notification.read === true ?
+                notification.description
+                :
+                <b>{notification.description}</b>
             }
           </div>
         )}
-        <div className={css.notificationbutton}>
+        {/* <div className={css.notificationbutton}>
           <Link to={`users/${props.currentUser.RowKey}/plants`} onClick={() => onLinkClick('sddf')}>
             {"Click to see your plants"}
           </Link>
-        </div>
+        </div> */}
       </div>
     </Popover>
   );
@@ -37,7 +59,12 @@ const NotificationsBadge = (props) => {
         <div href="#" className={css.notification}>
           <img src={bell} className={css.bell} alt="notifications" />
           <img src={bellhover} className={css.bellfull} alt="notifications" />
-          <span className={css.badge}>{props.notifications.length}</span>
+          {
+            props.notifications.length > 0 ?
+              <span className={css.badge}>{props.notifications.length}</span>
+              :
+              null
+          }
         </div>
       </OverlayTrigger>
     </React.Fragment>

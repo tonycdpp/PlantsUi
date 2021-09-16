@@ -11,13 +11,14 @@ var history;
 
 function logoutUser() {
   console.log(`User.js: Logging out action`);
+  // eslint-disable-next-line
   user.performLogOut()
   history.push('/');
 }
 
 const Header = (props) => {
   user = props;
-  history = useHistory();  
+  history = useHistory();
   return (
     <div className={css.header}>
       <div className={css.logo}>
@@ -32,7 +33,7 @@ const Header = (props) => {
             <div className={css.headrbutton}>
               <div className={css.username}>{`Hello again, ${props.currentUser.UserName} `}</div>
               <ActionButton display={`Log out`} action={logoutUser} />
-              <NotificationsFetcher currentUser={props.currentUser}/>
+              <NotificationsFetcher currentUser={props.currentUser} />
             </div>
         }
       </div>
