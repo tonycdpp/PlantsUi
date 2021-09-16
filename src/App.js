@@ -17,7 +17,7 @@ export default function App() {
     const performLogOut = () =>
     {
         console.log(`App.js: Logging out action`);
-        setCurrentUser();
+        setCurrentUser(); //makes it undefined
     }
 
     return (

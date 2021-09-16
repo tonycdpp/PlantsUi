@@ -4,25 +4,36 @@ import bell from "./../notifications/bell.png"
 import bellhover from "./../notifications/bell_full.png"
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const NotificationsBadge = (props) => {
+
+  const onLinkClick = (e) => {
+    document.body.click();
+  };
+
   const popover = (
     <Popover>
       <div className={css.popoverbody}>
         {props.notifications.map(notification =>
-          <p> {notification.description}</p>
+          <div className={css.notificationitem}>
+            {
+              <b> {notification.description} </b>
+            }
+          </div>
         )}
-        <NavLink to={`users/${props.currentUser.RowKey}/plants`}>
-          {"Click to see your plants"}
-        </NavLink>
+        <div className={css.notificationbutton}>
+          <Link to={`users/${props.currentUser.RowKey}/plants`} onClick={() => onLinkClick('sddf')}>
+            {"Click to see your plants"}
+          </Link>
+        </div>
       </div>
     </Popover>
   );
 
   return (
     <React.Fragment>
-      <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+      <OverlayTrigger trigger="click" placement="bottom" overlay={popover} rootClose={true}>
         <div href="#" className={css.notification}>
           <img src={bell} className={css.bell} alt="notifications" />
           <img src={bellhover} className={css.bellfull} alt="notifications" />

@@ -22,15 +22,15 @@ const Header = (props) => {
     <div className={css.header}>
       <div className={css.logo}>
         <img src={logo} alt="logo" style={{ width: '50px', height: '50px' }} />
-        <h1>Just Plants</h1>
+        <h1>Just Plants 3</h1>
       </div>
       <div className={css.headerright}>
         {
-          props.currentUser === undefined ?
+          props.currentUser === undefined ? //if
             <NavLink to="/login">{"Login"}</NavLink>
-            :
+            : //else
             <div className={css.headrbutton}>
-              <div className={css.username}>{`Hello ${props.currentUser.UserName}, `}</div>
+              <div className={css.username}>{`Hello again, ${props.currentUser.UserName} `}</div>
               <ActionButton display={`Log out`} action={logoutUser} />
               <NotificationsFetcher currentUser={props.currentUser}/>
             </div>

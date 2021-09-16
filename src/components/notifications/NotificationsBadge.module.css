@@ -48,16 +48,55 @@ body {
     color: white;
 }
 
+.notificationitem{
+    border: 1px solid rgba(40, 140, 40, 0.3);
+    border-radius: 3px;
+    padding: 5px;
+    margin-top: 5px;
+    background: white;
+}
+.notificationitem:hover{
+    cursor:help;
+}
+
 .popoverbody {
-    padding: 3px;;
+    background-color: #f0f0f0;
+    padding: 3px;
     position: absolute;
     top: 20px;
-    left: -150px;
+    left: -154px;
     z-index: 1070;
     display: block;
     width: 180px;
-    border: gray solid 1px;
+    border: 1px solid rgba(40, 40, 40, 0.2);
     border-radius: 5px;
     font-size: .650em;
+    box-shadow: 5px 5px rgba(40, 140, 40, 0.3);;
 }
 
+.popoverbody a:hover {
+    background-color: lightgreen;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.popoverbody a {
+    color: white;
+    text-align: center;
+    padding: 4px 8px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 25px;
+    border-style: none;
+    border-radius: 5px;
+    background: green;
+    border: solid darkgreen 1px;
+}
+
+
+.popoverbody div.notificationbutton {
+    text-align: center;
+    margin: 15px;
+}

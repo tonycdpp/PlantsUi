@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; //these are react hooks
 import axios from 'axios';
 // import LoadingIndicator from '../shared/LoadingIndicator';
 // eslint-disable-next-line
@@ -20,7 +20,7 @@ const NotificationsFetcher = (props) => {
 
     async function fetchAllUserNotifications() {
         if (props.currentUser !== undefined) {
-            trackPromise(
+            trackPromise( //this is for the spinner
                 axios.get(`${baseUrl}/users/${props.currentUser.RowKey}/notifications`)
                     .then(response => {
                         console.log(response.data)
@@ -32,7 +32,7 @@ const NotificationsFetcher = (props) => {
         }
     }
 
-    useEffect(() => {
+    useEffect(() => { //on load component
         fetchAllUserNotifications();
         // eslint-disable-next-line
     }, []);
