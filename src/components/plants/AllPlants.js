@@ -1,21 +1,28 @@
 import React from 'react';
+import LoadingIndicator from '../shared/LoadingIndicator';
+import css from "./AllPlants.module.css";
 import PlantListItem from "./PlantListItem";
-import css from "./AllPlants.module.css"
-
-var plant;
-
-function stateUpdated(updatedObject) {
-    plant.stateUpdated(updatedObject);
-    console.log(`AllPlants.js: Refreshing state`);
-}
+import usePlants from '../../hooks/usePlants';
 
 const AllPlants = (props) => {
-    plant = props;
+    var currentUser;
+    currentUser = props.currentUser;
+    const { allPlants, setAllPlants, promiseInProgress } = usePlants(currentUser);
+
+    const stateUpdated = (updatedObject) => {
+        setAllPlants(updatedObject);
+    }
+
     return (
-        <div className={css.plantslist}>
-            {props.plants.map(plant => <PlantListItem stateUpdated={stateUpdated} key={plant.rowKey} currentUser={props.currentUser} {...plant} />)}
-        </div>
-    )
+        <React.Fragment>
+            <LoadingIndicator promiseInProgress={promiseInProgress} />
+            <div className={css.plantslist}>
+                {allPlants.map(plant => <PlantListItem stateUpdated={stateUpdated} key={plant.rowKey} currentUser={props.currentUser} {...plant} />)}
+
+            </div>
+        </React.Fragment>
+
+    );
 }
 
 export default AllPlants
