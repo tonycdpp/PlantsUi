@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import UserPlantsFetcher from "./components/user-plants/UserPlantsFetcher";
-import UsersFetcher from "./components/users-login/UsersFetcher";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './components/shared/Header';
 import AllPlantsFetcher from './components/plants/AllPlantsFetcher';
+import usePlantsAppState from "./hooks/usePlantsAppState"
+import Users from "./components/users/Users"
+
 // eslint-disable-next-line
 import css from './App.module.css'
 
 export default function App() {
-    const [currentUser, setCurrentUser] = useState();
+    const {users, currentUser, setCurrentUser, promiseInProgress} = usePlantsAppState();
+
     const performLogIn = (loggedInUser) =>
     {
         setCurrentUser(loggedInUser);
@@ -25,7 +28,7 @@ export default function App() {
             <Router>
                 <Header performLogOut={performLogOut} currentUser={currentUser} />
                 <Route exact path="/login" >
-                    <UsersFetcher performLogIn={performLogIn} currentUser={currentUser}/>
+                    <Users performLogIn={performLogIn} users={users} currentUser={currentUser} promiseInProgress={promiseInProgress}/>
                 </Route>
                 <Route exact path="/plants/all" >
                     <AllPlantsFetcher currentUser={currentUser}/>
