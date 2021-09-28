@@ -38,7 +38,6 @@ function repot(userplant) {
 const UserPlant = (props) => {
   plant = props;
   return (
-
     <div className={css.container}>
       <div className={css.plantimage}>
         <img alt={props.plantName} src={props.plantPhotoUri} />
@@ -46,13 +45,6 @@ const UserPlant = (props) => {
       <div className={css.centredleft}>
         <a href={props.plantWikipediaUri}>{props.plantName}</a>
       </div>
-      {/* {
-        // eslint-disable-next-line
-        props.userPlantRowKey != undefined ?
-          <div className={css.topleft}>Already Mine :)</div>
-          :
-          <div className={css.topleft}></div>
-      } */}
       <div className={css.topright} style={{ color: props.wateringDueInDays < 0 ? 'red' : 'black' }}>
         <div>
           Watering {props.wateringDueInDays < 0 ? ' overdue by ' : ' due in '} {props.wateringDueInDays < 0 ? props.wateringDueInDays * -1 : props.wateringDueInDays} {"days "}
@@ -66,28 +58,6 @@ const UserPlant = (props) => {
         <ActionButton display={"Mark as repotted"} action={repot} value={props.userPlantRowKey} />
       </div>
     </div>
-    /*
-        <li className={css.userplantlistitem}>
-          <div className={css.centred}>
-            <img className={css.plantimage} alt={props.plantName} src={props.plantPhotoUri} />
-            <div className={css.plantdescription}>
-              <div className={css.plantdetails}>
-                <a href={props.plantWikipediaUri}>{props.plantName}</a>
-                <p>(owned since:{(new Date(props.ownershipDate)).toLocaleDateString('en-GB')})</p>
-              </div>
-              <div className={css.plantwatering} style={{ color: props.wateringDueInDays < 0 ? 'red' : 'black' }}>
-                Watering {props.wateringDueInDays < 0 ? ' overdue by ' : ' due in '} {props.wateringDueInDays < 0 ? props.wateringDueInDays * -1 : props.wateringDueInDays} {"days "}
-                <ActionButton display={"Mark as watered"} action={water} value={props.userPlantRowKey} />
-              </div>
-              <div className={css.plantrepotting} style={{ color: props.repottingDueInDays < 0 ? 'red' : 'black' }}>
-                Repotting {props.repottingDueInDays < 0 ? ' overdue by ' : ' due in '} {props.repottingDueInDays < 0 ? props.repottingDueInDays * -1 : props.repottingDueInDays} {"days "}
-                <ActionButton display={"Mark as repotted"} action={repot} value={props.userPlantRowKey} />
-              </div>
-            </div>
-          </div>
-        </li>
-    
-        */
   );
 }
 
