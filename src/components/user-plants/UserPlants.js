@@ -1,21 +1,25 @@
 import React from 'react';
 import UserPlant from "./UserPlant";
 import css from './UserPlants.module.css';
+import { useParams } from "react-router-dom";
+import LoadingIndicator from '../shared/LoadingIndicator';
+import useUserPlants from '../../hooks/useUserPlants';
 
-var plant;
+const UserPlants = () => {
+    const { userrowkey } = useParams();
+    const { userPlants, setUserPlants, promiseInProgress } = useUserPlants(userrowkey);
 
-function stateUpdated(updatedObject) {
-    plant.stateUpdated(updatedObject);
-    console.log(`UserPlants.js: Refreshing state`);
-}
+    const stateUpdated = (updatedObject) => {
+        setUserPlants(updatedObject);
+    }
 
-const UserPlants = (props) => {
-    plant = props;
     return (
-        <div className={css.myplantscentredcontainer}>
-            {props.userPlants.map(userPlant => <UserPlant stateUpdated={stateUpdated} key={userPlant.userPlantRowKey} {...userPlant} />)}
-        </div>
-    )
+        <React.Fragment>
+            <LoadingIndicator promiseInProgress={promiseInProgress} />
+            <div className={css.myplantscentredcontainer}>
+                {userPlants.map(userPlant => <UserPlant stateUpdated={stateUpdated} key={userPlant.userPlantRowKey} {...userPlant} />)}
+            </div>
+        </React.Fragment>
+    );
 }
-
 export default UserPlants

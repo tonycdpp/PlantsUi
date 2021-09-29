@@ -1,10 +1,10 @@
 import React from 'react';
-import UserPlantsFetcher from "./components/user-plants/UserPlantsFetcher";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './components/shared/Header';
 import AllPlants from './components/plants/AllPlants';
 import useUsers from "./hooks/useUsers"
 import Users from "./components/users/Users"
+import UserPlants from './components/user-plants/UserPlants';
 
 // eslint-disable-next-line
 import css from './App.module.css'
@@ -34,7 +34,7 @@ export default function App() {
                     <AllPlants currentUser={currentUser}/>
                 </Route>
                 <Route exact path="/users/:userrowkey/plants" >
-                    <UserPlantsFetcher currentUser={currentUser}/>
+                    <UserPlants currentUser={currentUser}/>
                 </Route>
             </Router>
         </React.Fragment >
