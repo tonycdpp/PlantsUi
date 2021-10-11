@@ -6,7 +6,7 @@ const UserOptions = (props) => {
   return (
     <div className={css.optionslist}>
       <div className={css.menuoption}>
-        <NavLink to={`users/${props.currentUser.RowKey}/plants`}>
+        <NavLink to={`users/plants`}>
           {"Your plants"}
         </NavLink>
         <p>This is where you'll find the list of your plants you own. </p>
