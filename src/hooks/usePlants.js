@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { trackPromise, usePromiseTracker } from "react-promise-tracker"
 
-export function usePlants(currentUSer) {
-
+export function usePlants(currentUser) {
     const [allPlants, setAllPlants] = useState([]);
     const { promiseInProgress } = usePromiseTracker();
 
@@ -11,7 +10,7 @@ export function usePlants(currentUSer) {
         var baseUrl = "https://plants-api.azurewebsites.net"
         // var baseUrl = "https://localhost:44391"
         trackPromise(
-            axios.get(`${baseUrl}/users/${currentUSer.RowKey}/plants/all`)
+            axios.get(`${baseUrl}/users/${currentUser.RowKey}/plants/all`)
                 .then(response => {
                     console.log(response.data)
                     setAllPlants(response.data);

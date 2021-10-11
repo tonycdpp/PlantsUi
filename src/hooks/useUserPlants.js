@@ -11,7 +11,7 @@ export function useUserPlants(currentUser) {
         var baseUrl = "https://plants-api.azurewebsites.net"
         // var baseUrl = "https://localhost:44391"
         trackPromise(
-            axios.get(`${baseUrl}/users/${currentUser}/plants`)
+            axios.get(`${baseUrl}/users/${currentUser.RowKey}/plants`)
                 .then(response => {
                     setUserPlants(response.data);
                 })

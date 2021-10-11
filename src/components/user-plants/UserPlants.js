@@ -1,13 +1,15 @@
 import React from 'react';
 import UserPlant from "./UserPlant";
 import css from './UserPlants.module.css';
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import LoadingIndicator from '../shared/LoadingIndicator';
 import useUserPlants from '../../hooks/useUserPlants';
 
-const UserPlants = () => {
-    const { userrowkey } = useParams();
-    const { userPlants, setUserPlants, promiseInProgress } = useUserPlants(userrowkey);
+const UserPlants = (props) => {
+    // const { userrowkey } = useParams();
+    var currentUser;
+    currentUser = props.currentUser;
+    const { userPlants, setUserPlants, promiseInProgress } = useUserPlants(currentUser);
 
     const stateUpdated = (updatedObject) => {
         setUserPlants(updatedObject);

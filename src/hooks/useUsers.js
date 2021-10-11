@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLocalStorage } from 'react';
 import axios from 'axios';
 import { trackPromise, usePromiseTracker } from "react-promise-tracker"
 
@@ -6,6 +6,7 @@ export function useUsers() {
 
     const [users, setUsers] = useState([]);
     const [currentUser, setCurrentUser] = useState();
+    // const [currentUser, setCurrentUser] = useLocalStorage('currentuser', currentUser);
     const { promiseInProgress } = usePromiseTracker();
 
     useEffect(() => {

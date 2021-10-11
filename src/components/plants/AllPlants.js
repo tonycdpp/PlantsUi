@@ -18,7 +18,6 @@ const AllPlants = (props) => {
             <LoadingIndicator promiseInProgress={promiseInProgress} />
             <div className={css.plantslist}>
                 {allPlants.map(plant => <PlantListItem stateUpdated={stateUpdated} key={plant.rowKey} currentUser={props.currentUser} {...plant} />)}
-
             </div>
         </React.Fragment>
 
